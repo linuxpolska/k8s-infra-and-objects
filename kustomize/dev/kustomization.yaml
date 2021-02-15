@@ -1,0 +1,14 @@
+bases:
+- ../base/
+
+images:
+- name: hello
+  newName: gcr.io/kuba-linux-polska/go-hello-world
+  newTag: 1.0.0
+
+configMapGenerator:
+- name: env-vars
+  namespace: hello-world
+  literals:
+    - APP_VERSION=1.0.0
+    - APP_ENVIRONMENT=test

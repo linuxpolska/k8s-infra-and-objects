@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+*.log
+tmp/
+DEV/.terraform
+PROD/.terraform
+DEV/.terraform.lock.hcl.
+PROD/.terraform.lock.hcl
