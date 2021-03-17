@@ -1,17 +1,19 @@
-bases:
-- ../base/
 
 images:
 - name: hello
   newName: gcr.io/kuba-linux-polska/go-hello-world
-  newTag: 1.0.0
+  newTag: af556757320d8de22771c8f2dc8765638204df73
 
 configMapGenerator:
-- name: env-vars
+- literals:
+  - APP_VERSION=1.0.0
+  - APP_ENVIRONMENT=prod
+  name: env-vars
   namespace: hello-world
-  literals:
-    - APP_VERSION=1.0.0
-    - APP_ENVIRONMENT=prod
 
 patchesStrategicMerge:
 - increase_replicas.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../base/
