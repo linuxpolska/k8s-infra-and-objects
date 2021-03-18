@@ -8,7 +8,7 @@ resource "random_password" "password" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "GKE-${var.environment}"
+  name     = "gke-${var.environment}"
   location = var.zone["Poland"]
 
   remove_default_node_pool = true
