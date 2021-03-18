@@ -2,7 +2,8 @@
 images:
 - name: hello
   newName: gcr.io/kuba-linux-polska/go-hello-world
-  newTag: af556757320d8de22771c8f2dc8765638204df73
+  newTag: 74646c78102e9ba10f1d6b70250995dcdccac6da
+
 
 configMapGenerator:
 - literals:
