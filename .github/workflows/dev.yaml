@@ -14,14 +14,14 @@ env:
 jobs:
 
   deploy-to-test:
-    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: dev
       - uses: imranismail/setup-kustomize@v1
         with:
           kustomize-version: "4.0.4"
-      - run: cd k8s-infra-and-objects && git checkout dev
       - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: ${{ secrets.PROJECT_ID }}
@@ -32,4 +32,4 @@ jobs:
       - name: config cluster
         run: gcloud container clusters get-credentials $CLUSTER_NAME --zone $CLUSTER_ZONE
       - name: Update the cluster
-        run: cd k8s-infra-and-objects && kustomize build dev | kubectl apply -f -
+        run: cd kustomize && kustomize build dev | kubectl apply -f -

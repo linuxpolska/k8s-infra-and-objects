@@ -2,7 +2,7 @@
 name: Deploy app to K8S pipeline - PROD
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -14,7 +14,6 @@ env:
 jobs:
 
   deploy-to-prod:
-    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,4 +30,4 @@ jobs:
       - name: config cluster
         run: gcloud container clusters get-credentials $CLUSTER_NAME --zone $CLUSTER_ZONE
       - name: Update the cluster
-        run: kustomize build prod | kubectl apply -f-
+        run: cd kustomize && kustomize build prod | kubectl apply -f-
