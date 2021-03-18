@@ -4,6 +4,7 @@ images:
   newName: gcr.io/kuba-linux-polska/go-hello-world
   newTag: 74646c78102e9ba10f1d6b70250995dcdccac6da
 
+
 configMapGenerator:
 - literals:
   - APP_VERSION=1.0.0
