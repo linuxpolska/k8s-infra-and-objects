@@ -4,5 +4,5 @@
 tmp/
 DEV/.terraform
 PROD/.terraform
-DEV/.terraform.lock.hcl.
+DEV/.terraform.lock.hcl
 PROD/.terraform.lock.hcl
