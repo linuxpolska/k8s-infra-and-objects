@@ -4,7 +4,7 @@ name: Deploy app to K8S pipeline - PROD
 on:
   push:
     branches:
-      - dev
+      - main
 
 env:
   APP_NAME: "go-hello-world"
