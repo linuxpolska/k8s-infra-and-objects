@@ -30,4 +30,4 @@ jobs:
       - name: config cluster
         run: gcloud container clusters get-credentials $CLUSTER_NAME --zone $CLUSTER_ZONE
       - name: Update the cluster
-        run: kustomize build prod | kubectl apply -f-
+        run: cd kustomize && kustomize build prod | kubectl apply -f-
